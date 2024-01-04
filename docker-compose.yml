@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: ./project/init/mysql/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: PROJECT
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
