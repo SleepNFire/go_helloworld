@@ -1,4 +1,4 @@
-package main_test
+package data_test
 
 import (
 	"os"

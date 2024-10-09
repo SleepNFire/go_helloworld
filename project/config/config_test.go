@@ -1,10 +1,9 @@
-package units_test
+package config
 
 import (
 	"os"
 	"testing"
 
-	"github.com/SleepNFire/go_bootstrap/project/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -12,11 +11,11 @@ func TestInit(t *testing.T) {
 	tests := []struct {
 		name          string
 		environnement [][]string
-		want          config.Config
+		want          Config
 	}{
 		{
 			name: "default",
-			want: config.Default(),
+			want: Default(),
 		},
 		{
 			name: "custom_conf",
@@ -27,8 +26,8 @@ func TestInit(t *testing.T) {
 				{"PROJECT_MYSQL_USER", "custom_user"},
 				{"PROJECT_MYSQL_PASSWORD", "custom_password"},
 			},
-			want: config.Config{
-				MySql: config.MySql{
+			want: Config{
+				MySql: MySql{
 					Adress:   "custom_localhost",
 					User:     "custom_user",
 					Password: "custom_password",
@@ -46,7 +45,7 @@ func TestInit(t *testing.T) {
 				}
 			}
 
-			conf, err := config.Init()
+			conf, err := Init()
 
 			assert.NoError(t, err)
 			assert.Equal(t, tt.want, *conf)

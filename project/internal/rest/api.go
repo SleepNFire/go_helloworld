@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/SleepNFire/go_bootstrap/project/internal/data"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/fx"
+	"go_bootstrap/project/internal/data"
 )
 
 type ginService struct {

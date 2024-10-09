@@ -1,13 +1,13 @@
-package main_test
+package data_test
 
 import (
 	"context"
+	"go_bootstrap/project/internal/data"
 	"os"
 	"testing"
 
-	"github.com/SleepNFire/go_bootstrap/project/config"
-	"github.com/SleepNFire/go_bootstrap/project/internal/data"
 	"go.uber.org/fx"
+	"go_bootstrap/project/config"
 )
 
 var Mysql data.MySqlAccessor

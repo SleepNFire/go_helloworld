@@ -1,10 +1,10 @@
 package app
 
 import (
-	"github.com/SleepNFire/go_bootstrap/project/config"
-	"github.com/SleepNFire/go_bootstrap/project/internal/data"
-	"github.com/SleepNFire/go_bootstrap/project/internal/rest"
 	"go.uber.org/fx"
+	"go_bootstrap/project/config"
+	"go_bootstrap/project/internal/data"
+	"go_bootstrap/project/internal/rest"
 )
 
 func Init() *fx.App {

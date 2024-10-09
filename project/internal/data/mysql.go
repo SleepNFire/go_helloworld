@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"go_bootstrap/project/config"
 	"net/http"
 
-	"github.com/SleepNFire/go_bootstrap/project/config"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 )
