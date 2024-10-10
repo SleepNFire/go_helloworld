@@ -6,26 +6,11 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
-type MySql struct {
-	Adress   string
-	User     string
-	Password string
-	Database string
-}
-
 type Config struct {
-	MySql MySql
 }
 
 func Default() Config {
-	return Config{
-		MySql: MySql{
-			Adress:   "127.0.0.1:3306",
-			User:     "user",
-			Password: "password",
-			Database: "PROJECT",
-		},
-	}
+	return Config{}
 }
 
 func Init() (*Config, error) {

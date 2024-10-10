@@ -2,9 +2,9 @@ package app
 
 import (
 	"go.uber.org/fx"
-	"go_bootstrap/project/config"
-	"go_bootstrap/project/internal/data"
-	"go_bootstrap/project/internal/rest"
+	"go_bootstrap/config"
+	"go_bootstrap/internal/helloworld"
+	"go_bootstrap/internal/rest"
 )
 
 func Init() *fx.App {
@@ -12,7 +12,8 @@ func Init() *fx.App {
 	app := fx.New(
 		fx.Options(
 			fx.Provide(config.Init),
-			fx.Provide(data.NewMySqlAccessor),
+			fx.Provide(helloworld.InitHelloEndpoint),
+
 			fx.Invoke(rest.Init),
 		),
 	)

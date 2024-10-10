@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go_bootstrap/project/internal/app"
+	"go_bootstrap/internal/app"
 )
 
 func main() {
