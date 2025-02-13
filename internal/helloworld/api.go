@@ -1,6 +1,11 @@
 package helloworld
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"net/http"
+	"regexp"
+	"strings"
+)
 
 type HelloEndpoint struct {
 }
@@ -10,10 +15,23 @@ func InitHelloEndpoint() (*HelloEndpoint, error) {
 }
 
 func (he *HelloEndpoint) RegisterEndpoint(router *gin.Engine) {
-	router.GET("/turing", he.HelloWorld)
-	router.GET("/alan-turing", he.HelloWorld)
-	router.GET("/AlanTuring", he.HelloWorld)
-	router.GET("/alanturing", he.HelloWorld)
+
+	turingRegex := regexp.MustCompile(`(?i)^(turing|alan[ _-]?turing)$`)
+	router.GET("/:path", func(c *gin.Context) {
+		path := c.Param("path")
+
+		// Nettoyage du chemin (supprime les éventuels slashs et espaces superflus)
+		path = strings.Trim(path, "/")
+
+		if turingRegex.MatchString(path) {
+			he.HelloWorld(c)
+			return
+		}
+
+		// Si ce n'est pas une route valide, Gin retournera une 404
+		c.AbortWithStatus(http.StatusNotFound)
+	})
+
 	router.GET("/reponse", he.NotResponse)
 }
 
